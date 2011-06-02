@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "harvestsharp", "harvestsharp\harvestsharp.csproj", "{815EF8BD-75DF-411A-85B9-4946987DEC1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "harvestsharp.test", "harvestsharp.test\harvestsharp.test.csproj", "{A2F62DA8-7D46-42EC-BF49-7108F903EFC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CB12A4E8-558B-4548-9FC9-3051EDD91C15}"
+	ProjectSection(SolutionItems) = preProject
+		harvestsharp.vsmdi = harvestsharp.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = harvestsharp.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{815EF8BD-75DF-411A-85B9-4946987DEC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{815EF8BD-75DF-411A-85B9-4946987DEC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{815EF8BD-75DF-411A-85B9-4946987DEC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{815EF8BD-75DF-411A-85B9-4946987DEC1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2F62DA8-7D46-42EC-BF49-7108F903EFC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F62DA8-7D46-42EC-BF49-7108F903EFC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F62DA8-7D46-42EC-BF49-7108F903EFC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F62DA8-7D46-42EC-BF49-7108F903EFC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
