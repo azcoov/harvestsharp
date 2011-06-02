@@ -10,24 +10,17 @@ namespace harvestsharp
     {
         public static XElement ToXElement<T>(this T obj)
         {
-            try
+            XmlSerializerNamespaces emptyNamespace = new XmlSerializerNamespaces();
+            emptyNamespace.Add(String.Empty, String.Empty);
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
+            XmlWriterSettings writerSettings = new XmlWriterSettings();
+            writerSettings.OmitXmlDeclaration = true;
+            StringWriter stringWriter = new StringWriter();
+            using (XmlWriter xmlWriter = XmlWriter.Create(stringWriter, writerSettings))
             {
-                XmlSerializerNamespaces emptyNamespace = new XmlSerializerNamespaces();
-                emptyNamespace.Add(String.Empty, String.Empty);
-                XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
-                XmlWriterSettings writerSettings = new XmlWriterSettings();
-                writerSettings.OmitXmlDeclaration = true;
-                StringWriter stringWriter = new StringWriter();
-                using (XmlWriter xmlWriter = XmlWriter.Create(stringWriter, writerSettings))
-                {
-                    xmlSerializer.Serialize(xmlWriter, obj, emptyNamespace);
-                }
-                return XElement.Parse(stringWriter.ToString());
+                xmlSerializer.Serialize(xmlWriter, obj, emptyNamespace);
             }
-            catch (Exception)
-            {
-                return null;
-            }
+            return XElement.Parse(stringWriter.ToString());
         }
     }
 }
