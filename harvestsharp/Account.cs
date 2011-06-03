@@ -80,22 +80,22 @@ namespace harvestsharp
 
         private string Upload(string uri, string method, string postData)
         {
-            string data = String.Empty;
-
             ServicePointManager.ServerCertificateValidationCallback = Validator;
 
             ServicePointManager.Expect100Continue = false;
-            Byte[] postbytes = Encoding.ASCII.GetBytes(postData);
             WebClient client = new WebClient();
-
             SetAuthHeader(GetEncodedCredentials(), client);
             client.Headers.Add("Content-Type", "application/xml");
             client.Headers.Add("Accept", "application/xml");
             client.Headers.Add("User-Agent", "harvestsharp");
 
-            byte[] resp = client.UploadData(uri, method, postbytes);
-
-            return Encoding.ASCII.GetString(resp);
+            if (!String.IsNullOrEmpty(postData)) {
+                Byte[] postbytes = Encoding.ASCII.GetBytes(postData);
+                byte[] resp = client.UploadData(uri, method, postbytes);
+                return Encoding.ASCII.GetString(resp);
+            } else {
+                return client.UploadString(uri, method, String.Empty);
+            }
         }
 
         private static void SetAuthHeader(string authstring, WebClient client)

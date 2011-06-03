@@ -33,5 +33,19 @@ namespace harvestsharp.test
             Assert.IsTrue(result);
             Assert.IsInstanceOfType(result, typeof(bool));
         }
+
+        [TestMethod]
+        public void test_DeactivatingAProject()
+        {
+            var project_id = 0;
+            harvest.DeactivateProject(project_id);
+        }
+
+        [TestMethod]
+        public void test_ReactivatingAProject()
+        {
+            var project_id = 0;
+            harvest.ReactivateProject(project_id);
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace harvestsharp.test
     public class BaseTest
     {
         public Account_Mock account;
-        public Harvest harvest; 
+        public Harvest harvest;
 
         [TestInitialize()]
         public void MyTestInitialize()

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Script.Serialization;
+using System.Collections;
 
 namespace harvestsharp
 {
     public class Harvest
     {
         private IAccount account;
+        private Hashtable parameters = new Hashtable();
 
         public Harvest(string userName, string password, string subDomain)
             : this(new Account(userName, password, subDomain))
@@ -60,6 +62,23 @@ namespace harvestsharp
         {
             account.request("/projects", "POST", postData: project.ToXElement().ToString());
             return true;
+        }
+
+        public void DeactivateProject(int project_id)
+        {
+            ToggleActivation(project_id);
+        }
+
+        public void ReactivateProject(int project_id)
+        {
+            ToggleActivation(project_id);
+        }
+
+        private void ToggleActivation(int project_id)
+        {
+            parameters.Clear();
+            parameters.Add("project_id", project_id);
+            account.request(String.Format("/projects/{0}/toggle", project_id), "PUT");
         }
     }
 }
