@@ -21,6 +21,7 @@ This will get you a strongly typed list of your harvest projects.
 
 Projects GET - You can fetch a list of all projects    
 Projects POST - You can post new projects given a client id
+Projects PUT (de)activate - You can toggle the active flag on a project
 
 #What's missing?
 
